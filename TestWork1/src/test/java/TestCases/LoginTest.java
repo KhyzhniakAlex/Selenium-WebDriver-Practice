@@ -1,6 +1,5 @@
 package TestCases;
 
-import Pages.AccountPage;
 import Pages.GeneralPage;
 import Pages.HomePage;
 import Pages.LoginPage;
@@ -27,12 +26,14 @@ public class LoginTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://automationpractice.com");
 
-        new HomePage(driver).LoginSubmit();
+        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+        homePage.LoginSubmit();
 
-        new LoginPage(driver).doLogin("khyzhniak@i.ua", "khyzhniak");
+        LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+        loginPage.doLogin("khyzhniak@i.ua", "khyzhniak");
         Thread.sleep(1000);
 
-        new AccountPage(driver).LogoutSubmit();
+        homePage.LogoutSubmit();
         Thread.sleep(4000);
     }
 

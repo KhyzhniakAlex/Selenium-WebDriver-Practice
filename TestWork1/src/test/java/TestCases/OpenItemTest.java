@@ -28,12 +28,15 @@ public class OpenItemTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://automationpractice.com");
 
-        new HomePage(driver).LoginSubmit();
+        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+        homePage.LoginSubmit();
 
-        new LoginPage(driver).doLogin("khyzhniak@i.ua", "khyzhniak");
+        LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+        loginPage.doLogin("khyzhniak@i.ua", "khyzhniak");
         Thread.sleep(3000);
 
-        new AccountPage(driver).chooseItem();
+        AccountPage accountPage = PageFactory.initElements(driver, AccountPage.class);
+        accountPage.chooseItem();
         Thread.sleep(3000);
         Assert.assertEquals(driver.getTitle(), "Casual Dresses - My Store");
     }

@@ -2,7 +2,6 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends GeneralPage {
 
@@ -12,7 +11,6 @@ public class LoginPage extends GeneralPage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
     }
 
     private LoginPage typeUsername(String username) {
@@ -30,12 +28,11 @@ public class LoginPage extends GeneralPage {
         return new AccountPage(driver);
     }
 
-
-
     public AccountPage doLogin(String username, String password) {
         typeUsername(username);
         typePassword(password);
         System.out.println("Successful login");
+        //submitLogin();
         return submitLogin();
     }
 }
