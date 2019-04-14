@@ -26,14 +26,12 @@ public class LoginTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://automationpractice.com");
 
-        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
-        homePage.LoginSubmit();
+        new HomePage(driver).LoginSubmit();
 
-        LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-        loginPage.doLogin("khyzhniak@i.ua", "khyzhniak");
+        new LoginPage(driver).doLogin("khyzhniak@i.ua", "khyzhniak");
         Thread.sleep(1000);
 
-        homePage.LogoutSubmit();
+        new AccountPage(driver).LogoutSubmit();
         Thread.sleep(4000);
     }
 

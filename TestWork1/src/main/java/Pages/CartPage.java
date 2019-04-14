@@ -10,6 +10,7 @@ public class CartPage extends GeneralPage {
 
     public CartPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     public void checkItemName() {
