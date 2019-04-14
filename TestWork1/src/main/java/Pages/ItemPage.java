@@ -14,6 +14,7 @@ public class ItemPage extends GeneralPage{
 
     public ItemPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     private ItemPage moveToItemBlock() {

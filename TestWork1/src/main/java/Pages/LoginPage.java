@@ -11,6 +11,7 @@ public class LoginPage extends GeneralPage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     private LoginPage typeUsername(String username) {
@@ -32,7 +33,6 @@ public class LoginPage extends GeneralPage {
         typeUsername(username);
         typePassword(password);
         System.out.println("Successful login");
-        //submitLogin();
         return submitLogin();
     }
 }

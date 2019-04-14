@@ -6,19 +6,14 @@ import org.openqa.selenium.WebDriver;
 public class HomePage extends GeneralPage {
 
     private By loginButtonLocator = By.xpath("//nav//a[@class='login']");
-    private By logoutButtonLocator = By.xpath("//nav//a[@class='logout']");
 
     public HomePage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     public void LoginSubmit() {
         driver.findElement(loginButtonLocator).click();
-    }
-
-    public void LogoutSubmit() {
-        driver.findElement(logoutButtonLocator).click();
-        System.out.println("Successful logout");
     }
 
     /*public LoginPage goToLogin() {

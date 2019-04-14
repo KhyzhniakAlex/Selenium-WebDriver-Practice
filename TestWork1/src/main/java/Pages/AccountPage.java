@@ -7,13 +7,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AccountPage extends GeneralPage{
 
-    private WebDriverWait waiter;
-
     private By menuLocator = By.xpath("//div[@id='block_top_menu']/ul/li[2]");
     private By itemLocator = By.xpath("//div[@id='block_top_menu']/ul/li[2]/ul/li[1]/a");
+    private By logoutButtonLocator = By.xpath("//nav//a[@class='logout']");
 
     public AccountPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     private AccountPage moveToMenu() {
@@ -27,8 +27,18 @@ public class AccountPage extends GeneralPage{
         return new ItemPage(driver);
     }
 
+
+
     public ItemPage chooseItem() {
         moveToMenu();
         return goToItem();
+    }
+
+
+
+    public LoginPage LogoutSubmit() {
+        driver.findElement(logoutButtonLocator).click();
+        System.out.println("Successful logout");
+        return new LoginPage();
     }
 }
