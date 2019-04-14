@@ -25,21 +25,16 @@ public class AddItemToCartTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://automationpractice.com");
 
-        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
-        homePage.LoginSubmit();
+        new HomePage(driver).LoginSubmit();
 
-        LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-        loginPage.doLogin("khyzhniak@i.ua", "khyzhniak");
+        new LoginPage(driver).doLogin("khyzhniak@i.ua", "khyzhniak");
 
-        AccountPage accountPage = PageFactory.initElements(driver, AccountPage.class);
-        accountPage.chooseItem();
+        new AccountPage(driver).chooseItem();
         Assert.assertEquals(driver.getTitle(), "Casual Dresses - My Store");
 
-        ItemPage itemPage = PageFactory.initElements(driver, ItemPage.class);
-        itemPage.addItemToCart();
+        new ItemPage(driver).addItemToCart();
 
-        CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
-        cartPage.checkItemName();
+        new CartPage(driver).checkItemName();
         Thread.sleep(3000);
     }
 

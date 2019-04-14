@@ -3,6 +3,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,6 +15,7 @@ public class ItemPage extends GeneralPage{
 
     public ItemPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
     }
 
     private ItemPage moveToItemBlock() {
