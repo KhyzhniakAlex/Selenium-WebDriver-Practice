@@ -3,10 +3,14 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class CartPage extends GeneralPage {
 
-    private By itemNameLocator = By.xpath("//table[@id='cart_summary']/tbody//p[@class='product-name']/a");
+    @FindBy(xpath = "//table[@id='cart_summary']/tbody//p[@class='product-name']/a")
+    private WebElement itemNameLocator;
 
     public CartPage(WebDriver driver) {
         super(driver);
@@ -14,6 +18,6 @@ public class CartPage extends GeneralPage {
     }
 
     public void checkItemName() {
-        Assert.assertEquals(driver.findElement(itemNameLocator).getText(), "Printed Dress");
+        Assert.assertEquals(itemNameLocator.getText(), "Printed Dress");
     }
 }
