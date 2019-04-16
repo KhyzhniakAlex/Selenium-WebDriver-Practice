@@ -7,7 +7,6 @@ import Pages.LoginPage;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,7 +27,7 @@ public class OpenItemTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://automationpractice.com");
 
-        new HomePage(driver).LoginSubmit();
+        new HomePage(driver).goToLogin();
 
         new LoginPage(driver).doLogin("khyzhniak@i.ua", "khyzhniak");
         Thread.sleep(3000);
